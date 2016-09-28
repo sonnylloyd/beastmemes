@@ -1,0 +1,24 @@
+<ion-view view-title="List">
+  <ion-content>
+
+    <!-- content goes here -->
+    <ion-list>
+
+      <ion-item
+        class="item-remove-animate item-avatar item-icon-right"
+        type="item-text-wrap"
+        ui-sref="main.listDetail({id: item.id})" ng-repeat="item in items">
+        <img src="{{ item.attachments[0].images.thumbnail.url }}">
+        <h2>{{ item.title }}</h2>
+        <p>Learn more...</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+	  <ion-infinite-scroll distance="2"
+                     on-infinite="loadMoreData()"
+                     ng-if="!moredata"
+                     >
+		</ion-infinite-scroll>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

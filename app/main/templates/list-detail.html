@@ -1,0 +1,10 @@
+<ion-view view-title="{{ post.title }}">
+  <!-- do you want padding -->
+  <ion-content class="padding">
+
+    <!-- content goes here -->
+	<img class="maximg" src="{{ post.attachments[0].images.full.url }}">
+        <h2>{{ post.title }}</h2>
+        <div ng-bind-html="post.content"></div>
+  </ion-content>
+</ion-view>
