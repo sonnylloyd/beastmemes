@@ -1,24 +1,30 @@
 <ion-view view-title="List">
   <ion-content>
+<div>
+<div class="list card" ng-repeat="item in items">
 
-    <!-- content goes here -->
-    <ion-list>
+  <div class="item item-avatar">
+    <img ui-sref="main.listDetail({id: item.id})" src="{{ item.attachments[0].images.thumbnail.url }}">
+    <h2 ui-sref="main.listDetail({id: item.id})">{{ item.title }}</h2>
+    <p ui-sref="main.listDetail({id: item.id})">{{ item.title }}</p>
+  </div>
 
-      <ion-item
-        class="item-remove-animate item-avatar item-icon-right"
-        type="item-text-wrap"
-        ui-sref="main.listDetail({id: item.id})" ng-repeat="item in items">
-        <img src="{{ item.attachments[0].images.thumbnail.url }}">
-        <h2>{{ item.title }}</h2>
-        <p>Learn more...</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
-      </ion-item>
-	  <ion-infinite-scroll distance="2"
+  <div class="item item-image">
+    <img ui-sref="main.listDetail({id: item.id})" src="{{ item.attachments[0].images.full.url }}">
+  </div>
+
+  <a class="item item-icon-left assertive" href="#">
+    <i class="icon ion-music-note"></i>
+    Start listening
+  </a>
+
+</div>
+<ion-infinite-scroll distance="2"
                      on-infinite="loadMoreData()"
                      ng-if="!moredata"
                      >
 		</ion-infinite-scroll>
-    </ion-list>
+</div>
 
   </ion-content>
 </ion-view>
