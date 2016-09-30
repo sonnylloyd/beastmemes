@@ -10,6 +10,7 @@ angular.module('main')
 		{header : {'Content-Type' : 'application/json; charset=UTF-8'}})
 		.success(function(res){
 			var items = res.posts;
+			$log.log(res.posts);
 			for (var i = 0; i < items.length; i++) {
 				$scope.items.push(items[i]);
 			} 

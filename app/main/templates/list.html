@@ -1,4 +1,4 @@
-<ion-view view-title="List">
+<ion-view view-title="Recent Posts">
   <ion-content>
   <ion-refresher
     pulling-text="Pull to refresh..."
@@ -10,7 +10,7 @@
   <div class="item item-avatar">
     <img ui-sref="main.listDetail({id: item.id})" src="{{ item.attachments[0].images.thumbnail.url }}">
     <h2 ui-sref="main.listDetail({id: item.id})">{{ item.title }}</h2>
-    <p ui-sref="main.listDetail({id: item.id})">{{ item.title }}</p>
+    <p ui-sref="main.listDetail({id: item.id})">{{ item.date }}</p>
   </div>
 
   <div class="item item-image">
