@@ -8,18 +8,34 @@ angular.module('main')
     {
 		$http.get('http://beastmemes.com/api/get_posts/?page='+ $scope.page,
 		{header : {'Content-Type' : 'application/json; charset=UTF-8'}})
-		.then(function(res){
-			var items = res.data.posts;
+		.success(function(res){
+			var items = res.posts;
 			for (var i = 0; i < items.length; i++) {
 				$scope.items.push(items[i]);
 			} 
-			if(res.data.count == 0){
+			if(res.count == 0){
 				$scope.moredata=true;
 			}
-			$scope.$broadcast('scroll.infiniteScrollComplete');
 			$scope.page = $scope.page + 1;
+			$scope.$broadcast('scroll.infiniteScrollComplete');
 		});
     };
-
+	$scope.doRefresh =function(){
+	$scope.page = 1; 
+		$http.get('http://beastmemes.com/api/get_posts/?page='+ $scope.page,
+			{header : {'Content-Type' : 'application/json; charset=UTF-8'}})
+			.success(function(res){
+				var items = res.data.posts;
+				for (var i = 0; i < items.length; i++) {
+					$scope.items.push(items[i]);
+				} 
+				if(res.data.count == 0){
+					$scope.moredata=true;
+				}
+				$scope.page = $scope.page + 1;
+		}).finally(function() {
+			$scope.$broadcast('scroll.refreshComplete');
+		});
+	};
     $scope.items=[];
 });

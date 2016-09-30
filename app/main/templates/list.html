@@ -1,5 +1,9 @@
 <ion-view view-title="List">
   <ion-content>
+  <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
 <div>
 <div class="list card" ng-repeat="item in items">
 
