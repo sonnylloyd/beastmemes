@@ -1,5 +1,14 @@
 'use strict';
 angular.module('BeastMemes', [
   // load your modules here
-  'main', // starting with the main module
-]);
+  'main',
+  'ImgCache',// starting with the main module
+]).config(function(ImgCacheProvider) {
+	ImgCacheProvider.manualInit = true;
+}).run(function($ionicPlatform, ImgCache) {
+
+    $ionicPlatform.ready(function() {
+        ImgCache.$init();
+    });
+
+});
