@@ -19,6 +19,8 @@ angular.module('main')
 			}
 			$scope.page = $scope.page + 1;
 			$scope.$broadcast('scroll.infiniteScrollComplete');
+		}).error(function (response){
+			$log.log('error' + response);
 		});
     };
 	$scope.doRefresh =function(){
@@ -34,6 +36,8 @@ angular.module('main')
 					$scope.moredata=true;
 				}
 				$scope.page = $scope.page + 1;
+		}).error(function (response){
+			$log.log('error' + response);
 		}).finally(function() {
 			$scope.$broadcast('scroll.refreshComplete');
 		});
