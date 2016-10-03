@@ -14,7 +14,7 @@
   </div>
 
   <div class="item item-image">
-    <img ui-sref="main.listDetail({id: item.id})" src="{{ item.attachments[0].images.full.url }}">
+    <img img-cache ic-src="{{ item.attachments[0].images.full.url }}" ui-sref="main.listDetail({id: item.id})">
   </div>
 
   <a class="item item-icon-left assertive" ng-click="share('{{item.title}}','{{item.title}}','{{item.attachments[0].images.full.url}}', '{{item.url}}')">

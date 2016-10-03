@@ -1,7 +1,7 @@
 'use strict';
 angular.module('main')
 
-.controller("PostCtrl",function($scope,$log,$http,$cordovaSocialSharing){
+.controller("PostCtrl",function($scope,$log,$http){
 	$scope.page = 1;
     $scope.moredata = false;
     $scope.loadMoreData=function()
@@ -10,7 +10,6 @@ angular.module('main')
 		{header : {'Content-Type' : 'application/json; charset=UTF-8'}})
 		.success(function(res){
 			var items = res.posts;
-			$log.log(res.posts);
 			for (var i = 0; i < items.length; i++) {
 				$scope.items.push(items[i]);
 			} 
@@ -43,13 +42,11 @@ angular.module('main')
 		});
 	};
 	$scope.share = function ($message,$subject,$image,$url) {
-    console.log('Share Native');
-    $cordovaSocialSharing
-      .share($message, $subject, $image, $url)
+    window.plugins.socialsharing.share($message, $subject, $image, $url)
       .then(function(result) {
-        console.log(result);
+        //console.log(result);
       }, function(err) {
-        console.log('Error: ' + JSON.stringify(err));
+        //console.log('Error: ' + JSON.stringify(err));
       });
 	};
     $scope.items=[];
