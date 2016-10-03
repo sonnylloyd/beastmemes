@@ -42,7 +42,7 @@ angular.module('main')
 		});
 	};
 	$scope.share = function ($message,$subject,$image,$url) {
-    window.plugins.socialsharing.share($message, $subject, $image, $url)
+    window.plugins.socialsharing.share($sce.trustAsHtml($message), $sce.trustAsHtml($subject), $image, $url)
       .then(function(result) {
         //console.log(result);
       }, function(err) {
@@ -50,4 +50,8 @@ angular.module('main')
       });
 	};
     $scope.items=[];
+}).filter('html',function($sce){
+    return function(input){
+        return $sce.trustAsHtml(input);
+    }
 });

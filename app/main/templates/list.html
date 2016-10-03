@@ -9,7 +9,7 @@
 
   <div class="item item-avatar">
     <img img-cache ic-src="{{ item.attachments[0].images.thumbnail.url }}" ui-sref="main.listDetail({id: item.id})">
-    <h2 ui-sref="main.listDetail({id: item.id})">{{ item.title }}</h2>
+    <h2 ui-sref="main.listDetail({id: item.id})" ng-bind-html="item.title|html"></h2>
     <p ui-sref="main.listDetail({id: item.id})">{{ item.date }}</p>
   </div>
 
