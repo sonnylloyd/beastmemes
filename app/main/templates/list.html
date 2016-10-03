@@ -17,9 +17,9 @@
     <img ui-sref="main.listDetail({id: item.id})" src="{{ item.attachments[0].images.full.url }}">
   </div>
 
-  <a class="item item-icon-left assertive" href="#">
-    <i class="icon ion-music-note"></i>
-    Start listening
+  <a class="item item-icon-left assertive" ng-click="share({{item.title}},{{item.title}},{{item.attachments[0].images.full.url}}, 'http://www.x-services.nl')">
+    <i class="icon icon-right ion-chevron-right ion-accessory"></i> 
+    Share
   </a>
 	
 </div>
