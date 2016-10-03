@@ -19,6 +19,8 @@
     <allow-navigation href="*" />
     <allow-intent href="*" />
     <access origin="*" />
+	<access origin="cdvfile://*" />
+	<allow-intent href="cdvfile://*" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="res/android/mipmap-ldpi/ic_launcher.png" />
@@ -31,7 +33,28 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+		<preference name="iosPersistentFileLocation" value="Library" />
     </platform>
+	<feature name="http://api.phonegap.com/1.0/file"/>
+	<feature name="http://api.phonegap.com/1.0/device"/>
+	<feature name="http://api.phonegap.com/1.0/network"/>
+
+	<gap:plugin name="org.apache.cordova.file" />
+	<gap:plugin name="org.apache.cordova.device" />
+	<gap:plugin name="org.apache.cordova.file-transfer" />
+
+	<feature name="Device">
+		<param name="ios-package" value="CDVDevice" />
+		<param name="android-package" value="org.apache.cordova.device.Device" />
+	</feature>
+	<feature name="File">
+		<param name="ios-package" value="CDVFile" />
+		<param name="android-package" value="org.apache.cordova.file.FileUtils" />
+	</feature>
+	<feature name="FileTransfer">
+		<param name="ios-package" value="CDVFileTransfer" />
+		<param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
+	</feature>
     <engine name="ios" spec="~4.2.1" />
     <engine name="android" spec="~5.2.2" />
     <engine name="windows" spec="~4.4.2" />
