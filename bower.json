@@ -10,7 +10,8 @@
     "angular-translate": "~2.11.0",
     "angular-translate-loader-static-files": "~2.11.0",
     "localforage": "~1.4.0",
-    "angular-imgcache": "angular-imgcache.js#^1.1.0"
+    "angular-imgcache": "angular-imgcache.js#^1.1.0",
+	"http-with-fallback": "https://github.com/timschlechter/http-with-fallback.git"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.0"
