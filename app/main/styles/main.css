@@ -1,16 +1,20 @@
 .maximg{
 	max-width:100%;
 }
-.bar.bar-positive{
-	border-color: #222222;
-    background-color: #222222;
-    background-image: linear-gradient(0deg, #222222, #222222 50%, transparent 50%);
-    color: #fff;
-}
 .smlogo{
 	width:38px;
 	height:auto;
 }
 .graybg{
 	background-color:#F4F4F4;
+}
+.bar.bar-positive{
+	border-bottom: 1px solid #ddd;
+	background: #FFF;
+}
+.bar.bar-positive .title {
+    color: #222;
+}
+.bar-positive .button.button-clear{
+	color: #222;
 }
