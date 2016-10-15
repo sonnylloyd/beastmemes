@@ -6,7 +6,7 @@ angular.module('main')
     $scope.moredata = false;
     $scope.loadMoreData=function()
     {
-		$http.get('http://beastmemes.com/api/get_posts/?page='+ $scope.page,
+		$http.get('http://beastmemes.com/api/get_recent_posts/?page='+ $scope.page,
 		{header : {'Content-Type' : 'application/json; charset=UTF-8'}, timeout: 5000})
 		.success(function(res){
 			var items = res.posts;
@@ -35,7 +35,7 @@ angular.module('main')
     };
 	$scope.doRefresh =function(){
 	$scope.page = 1;
-		$http.get('http://beastmemes.com/api/get_posts/?page='+ $scope.page,
+		$http.get('http://beastmemes.com/api/get_recent_posts/?page='+ $scope.page,
 			{header : {'Content-Type' : 'application/json; charset=UTF-8'}, timeout: 5000})
 			.success(function(res){
 				var items = res.data.posts;
