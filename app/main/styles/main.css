@@ -18,3 +18,10 @@
 .bar-positive .button.button-clear{
 	color: #222;
 }
+
+.share-facebook {
+    background-color: #4b68b9;
+    border-color: #344b8d;
+    color: #ffffff!important;
+    text-shadow: 0 -1px 0 #3b55a0;
+}
