@@ -35,6 +35,15 @@ angular.module('main', [
           }
         }
       })
+      .state('main.cat', {
+        url: '/list/category',
+        views: {
+          'pageContent': {
+            templateUrl: 'main/templates/cat.html',
+            controller: 'CatCtrl as ctrl'
+          }
+        }
+      })
       .state('main.debug', {
         url: '/debug',
         views: {
