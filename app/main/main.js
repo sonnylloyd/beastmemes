@@ -44,6 +44,15 @@ angular.module('main', [
           }
         }
       })
+      .state('main.tag', {
+        url: '/list/tag',
+        views: {
+          'pageContent': {
+            templateUrl: 'main/templates/tag.html',
+            controller: 'TagCtrl as ctrl'
+          }
+        }
+      })
       .state('main.debug', {
         url: '/debug',
         views: {
