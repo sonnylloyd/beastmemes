@@ -13,7 +13,7 @@ angular.module('main')
 			for (var i = 0; i < items.length; i++) {
 				$scope.items.push(items[i]);
 			}
-			if(res.count == 0){
+			if(res.count == items.length){
 				$scope.moredata=true;
 			}else{
 				if($scope.page == 1){window.localStorage.setItem('cats', JSON.stringify(res));}
@@ -42,7 +42,7 @@ angular.module('main')
 				for (var i = 0; i < items.length; i++) {
 					$scope.items.push(items[i]);
 				}
-				if(res.count == 0){
+				if(res.count == items.length){
 					$scope.moredata=true;
 				}else{
 					if($scope.page == 1){window.localStorage.setItem('cats', JSON.stringify(res));}
@@ -58,7 +58,6 @@ angular.module('main')
 				$scope.page = $scope.page + 1;
 			}
 			$scope.$broadcast('scroll.infiniteScrollComplete');
-			$log.log('error' + response);
 		}).finally(function() {
 			$scope.$broadcast('scroll.refreshComplete');
 		});
