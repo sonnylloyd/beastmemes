@@ -6,9 +6,7 @@ angular.module('main')
   $scope.moredata = false;
   $scope.loadMoreData = function() {
     var cache = false;
-    if ($scope.page == 1) {
-      cache = true;
-    }
+    if($scope.page == 1){cache = true;}
     Cacheget.http('http://beastmemes.com/api/get_recent_posts/?page=' + $scope.page, cache).then(function(res) {
       if (!res) {
         $scope.$broadcast('scroll.infiniteScrollComplete');
@@ -29,9 +27,7 @@ angular.module('main')
   $scope.doRefresh = function() {
     $scope.page = 1;
     var cache = false;
-    if ($scope.page == 1) {
-      cache = true;
-    }
+    if($scope.page == 1){cache = true;}
 		$scope.loadMoreData();
   };
   $scope.share = function($message, $subject, $image, $url) {
