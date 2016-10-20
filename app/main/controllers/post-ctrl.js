@@ -26,8 +26,6 @@ angular.module('main')
   };
   $scope.doRefresh = function() {
     $scope.page = 1;
-    var cache = false;
-    if($scope.page == 1){cache = true;}
 		$scope.loadMoreData();
   };
   $scope.share = function($message, $subject, $image, $url) {
