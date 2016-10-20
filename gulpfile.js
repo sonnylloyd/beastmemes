@@ -93,3 +93,8 @@ gulp.task('default', function () {
     return gulp.start('watch');
   }
 });
+
+gulp.task('build-prepare', function() {
+ gulp.src(['app/**/*'])
+  .pipe(gulp.dest('www',{overwrite: true}))
+});

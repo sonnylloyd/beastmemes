@@ -20,6 +20,7 @@
     <access origin="*" />
     <access origin="cdvfile://*" />
     <allow-intent href="cdvfile://*" />
+	<hook type="before_build" src="hooks/before_build/before_build.js" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="res/android/mipmap-ldpi/ic_launcher.png" />
