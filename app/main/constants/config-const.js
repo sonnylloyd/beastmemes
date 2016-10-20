@@ -5,8 +5,9 @@ angular.module('main')
   // gulp environment: injects environment vars
   ENV: {
     /*inject-env*/
-    'SERVER_URL': 'https://DEVSERVER/api',
-    'SOME_OTHER_URL': '/postman-proxy'
+    'RECENT_URL': 'http://beastmemes.com/api/get_recent_posts/',
+    'CATEGORIES_URL': 'http://beastmemes.com/api/get_category_index/',
+    'TAGS_URL': 'http://beastmemes.com/api/get_tag_index/'
     /*endinject*/
   },
 
