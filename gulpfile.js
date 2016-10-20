@@ -96,5 +96,5 @@ gulp.task('default', function () {
 
 gulp.task('build-prepare', function() {
  gulp.src(['app/**/*'])
-  .pipe(gulp.dest('www',{overwrite: true}))
+  .pipe(gulp.dest('www',{overwrite: true}));
 });

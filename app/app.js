@@ -5,7 +5,7 @@ angular.module('BeastMemes', [
   'ImgCache',// starting with the main module
 ]).config(function(ImgCacheProvider) {
 	ImgCacheProvider.manualInit = true;
-}).run(function($ionicPlatform, ImgCache) {
+}).run(function($ionicPlatform, ImgCache, Cacheget) {
 
     $ionicPlatform.ready(function() {
         ImgCache.$init();
