@@ -22,6 +22,7 @@ angular.module('main')
         }
         $scope.page = $scope.page + 1;
         $scope.$broadcast('scroll.infiniteScrollComplete');
+				$scope.$broadcast('scroll.refreshComplete');
       }
     });
   };
@@ -31,23 +32,7 @@ angular.module('main')
     if ($scope.page == 1) {
       cache = true;
     }
-    Cacheget.http('http://beastmemes.com/api/get_recent_posts/?page=' + $scope.page, cache).then(function(res) {
-      if (!res) {
-        $scope.$broadcast('scroll.infiniteScrollComplete');
-      } else {
-				$scope.items.length = 0;
-        var items = res.posts;
-        for (var i = 0; i < items.length; i++) {
-          $scope.items.push(items[i]);
-        }
-        if (res.count == 0) {
-          $scope.moredata = true;
-        }
-        $scope.page = $scope.page + 1;
-        $scope.$broadcast('scroll.infiniteScrollComplete');
-        $scope.$broadcast('scroll.refreshComplete');
-      }
-    });
+		$scope.loadMoreData();
   };
   $scope.share = function($message, $subject, $image, $url) {
     window.plugins.socialsharing.share($sce.trustAsHtml($message), $sce.trustAsHtml($subject), $image, $url)
