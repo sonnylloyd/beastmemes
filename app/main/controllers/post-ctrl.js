@@ -11,7 +11,6 @@ angular.module('main')
     }
     Cacheget.http('http://beastmemes.com/api/get_recent_posts/?page=' + $scope.page, cache).then(function(res) {
       if (!res) {
-        $log.log('error' + res);
         $scope.$broadcast('scroll.infiniteScrollComplete');
       } else {
         var items = res.posts;
@@ -34,9 +33,9 @@ angular.module('main')
     }
     Cacheget.http('http://beastmemes.com/api/get_recent_posts/?page=' + $scope.page, cache).then(function(res) {
       if (!res) {
-        $log.log('error' + res);
         $scope.$broadcast('scroll.infiniteScrollComplete');
       } else {
+				$scope.items.length = 0;
         var items = res.posts;
         for (var i = 0; i < items.length; i++) {
           $scope.items.push(items[i]);
