@@ -2,7 +2,7 @@
 angular.module('main')
 .service('Cacheget', function ($http, $log, $q) {
   this.debug = function () { $log.log("debugging cachget"); }
-  this.http = function(url,cache = false,cachename ='posts'){
+  this.http = function(url,cache = false, cachename = 'posts'){
     var def = $q.defer();
     $http.get(url, {
         header: {
