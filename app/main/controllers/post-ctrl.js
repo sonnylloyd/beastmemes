@@ -8,7 +8,7 @@ angular.module('main')
   $scope.loadMoreData = function () {
     var cache = false;
     if ($scope.page === 1) {cache = true;}
-    Cacheget.http(Config.ENV.RECENT_URL + '?page=' + $scope.page, cache).then( function(res) {
+    Cacheget.http(Config.ENV.RECENT_URL + '?page=' + $scope.page, cache, 'posts').then( function(res) {
       if (!res) {
         $scope.$broadcast('scroll.infiniteScrollComplete');
       } else {
