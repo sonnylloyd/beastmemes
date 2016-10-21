@@ -1,0 +1,23 @@
+<ion-view class="graybg" view-title="Most Recent">
+  <ion-content>
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+    </ion-refresher>
+    <div>
+      <div class="list card" ng-repeat="item in items">
+        <div class="item item-avatar">
+          <img img-cache ic-src="{{ item.attachments[0].images.thumbnail.url }}" ui-sref="main.listDetail({id: item.id})">
+          <h2 ui-sref="main.listDetail({id: item.id})" ng-bind-html="item.title|html"></h2>
+          <p ui-sref="main.listDetail({id: item.id})">{{ item.date }}</p>
+        </div>
+        <div class="item item-image">
+          <img img-cache ic-src="{{ item.attachments[0].images.full.url }}" ui-sref="main.listDetail({id: item.id})">
+        </div>
+        <a class="item item-icon-left assertive" ng-click="share('{{item.title}}','{{item.title}}','{{item.attachments[0].images.full.url}}', '{{item.url}}')">
+          <i class="icon icon-right ion-chevron-right ion-accessory"></i> Share
+        </a>
+      </div>
+      <ion-infinite-scroll distance="2" on-infinite="loadMoreData()" ng-if="!moredata">
+      </ion-infinite-scroll>
+    </div>
+  </ion-content>
+</ion-view>

@@ -21,7 +21,7 @@ angular.module('main', [
         url: '/list',
         views: {
           'pageContent': {
-            templateUrl: 'main/templates/list.html',
+            templateUrl: 'main/templates/posts.html',
             controller: 'PostCtrl as ctrl'
           }
         }
@@ -39,7 +39,7 @@ angular.module('main', [
         url: '/list/category',
         views: {
           'pageContent': {
-            templateUrl: 'main/templates/cat.html',
+            templateUrl: 'main/templates/lists.html',
             controller: 'CatCtrl as ctrl'
           }
         }
@@ -48,7 +48,7 @@ angular.module('main', [
         url: '/list/tag',
         views: {
           'pageContent': {
-            templateUrl: 'main/templates/tag.html',
+            templateUrl: 'main/templates/lists.html',
             controller: 'TagCtrl as ctrl'
           }
         }

@@ -1,0 +1,15 @@
+<ion-view class="graybg" view-title="Categories">
+  <ion-content>
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+    </ion-refresher>
+    <div>
+      <ion-list>
+        <ion-item ng-repeat="item in items" ui-sref="main.listDetail({id: item.id})">
+          {{item.title}}
+        </ion-item>
+      </ion-list>
+      <ion-infinite-scroll distance="2" on-infinite="loadMoreData()" ng-if="!moredata">
+      </ion-infinite-scroll>
+    </div>
+  </ion-content>
+</ion-view>
