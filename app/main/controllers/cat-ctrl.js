@@ -2,6 +2,7 @@
 angular.module('main')
 
 .controller('CatCtrl', function ($scope, $log, Config, Cacheget) {
+  $scope.title = "Categories";
   $scope.page = 1;
   $scope.moredata = false;
   $scope.loadMoreData = function () {

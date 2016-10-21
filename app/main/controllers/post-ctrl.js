@@ -2,6 +2,7 @@
 angular.module('main')
 
 .controller('PostCtrl', function ($scope, $log, Config, Cacheget) {
+  $scope.title = "Most Recent";
   $scope.page = 1;
   $scope.moredata = false;
   $scope.loadMoreData = function () {
