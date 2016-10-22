@@ -16,10 +16,11 @@ angular.module('main')
         for (var i = 0; i < items.length; i++) {
           $scope.items.push(items[i]);
         }
-        if (res.count === 0) {
+        if (res.pages === $scope.page) {
           $scope.moredata = true;
+        }else{
+          $scope.page = $scope.page + 1;
         }
-        $scope.page = $scope.page + 1;
         $scope.$broadcast('scroll.infiniteScrollComplete');
 				$scope.$broadcast('scroll.refreshComplete');
       }
