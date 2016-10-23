@@ -15,22 +15,26 @@ angular.module('main')
   $scope.moredata = false;
   $scope.loadMoreData = function () {
     var urlExtension = '?page=' + $scope.page;
-    if (!typeof slug === 'undefined') {
+    $log.log(slug);
+    if (typeof slug !== 'undefined') {
       switch (type) {
       case 'Category':
           url = Config.ENV.CATEGORY_URL;
           urlExtension = '?slug='+ slug +'&page=' + $scope.page;
+          $log.log(url + urlExtension);
           cachename = type + slug;
           break;
       case 'Tag':
           url = Config.ENV.TAG_URL;
           urlExtension = '?slug='+ slug +'&page=' + $scope.page;
+          $log.log(url + urlExtension);
           cachename = type + slug;
           break;
       }
     }
     var cache = false;
     if ($scope.page === 1) {cache = true;}
+    $log.log(url + urlExtension);
     Cacheget.http(url + urlExtension, cache, cachename).then( function(res) {
       if (!res) {
         $scope.$broadcast('scroll.infiniteScrollComplete');

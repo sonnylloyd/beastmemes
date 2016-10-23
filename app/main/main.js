@@ -36,7 +36,7 @@ angular.module('main', [
         }
       })
       .state('main.listtypeslug', {
-        url: '/list/:type/:slug',
+        url: '/list/type/:type/slug/:slug',
         views: {
           'pageContent': {
             templateUrl: 'main/templates/posts.html',
