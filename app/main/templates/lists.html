@@ -4,10 +4,16 @@
     </ion-refresher>
     <div>
       <ion-list>
-        <ion-item ng-repeat="item in items" ui-sref="main.listtypeslug({type: itemType, slug: item.slug})">
-          {{item.title}} <strong>({{ item.post_count }} Posts)</strong>
+        <ion-item class="item" ng-repeat="item in items" ui-sref="main.listtypeslug({type: itemType, slug: item.slug})">
+          {{item.title}}
+          <span class="badge badge-assertive">{{ item.post_count }} Posts</span>
         </ion-item>
       </ion-list>
+      <div class="card" ng-show="!items.length">
+        <div class="item item-text-wrap">
+          No Items To Display
+        </div>
+      </div>
       <ion-infinite-scroll distance="2" on-infinite="loadMoreData()" ng-if="!moredata">
       </ion-infinite-scroll>
     </div>

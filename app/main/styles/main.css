@@ -19,6 +19,11 @@
 	color: #222;
 }
 
+.tabs .tab-item .badge.badge-assertive, .badge.badge-assertive {
+    background-color: #444;
+    color: #fff;
+}
+
 .share-facebook {
     background-color: #4b68b9;
     border-color: #344b8d;

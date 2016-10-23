@@ -16,6 +16,11 @@
           <i class="icon icon-right ion-chevron-right ion-accessory"></i> Share
         </a>
       </div>
+      <div class="card" ng-show="!items.length">
+        <div class="item item-text-wrap">
+          No Items To Display
+        </div>
+      </div>
       <ion-infinite-scroll distance="2" on-infinite="loadMoreData()" ng-if="!moredata">
       </ion-infinite-scroll>
     </div>
