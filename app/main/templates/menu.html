@@ -26,10 +26,13 @@
     <!-- menu content -->
     <ion-content>
       <div>
+        <form ng-submit="doSearch()">
 <label class="item item-input">
   <i class="icon ion-search placeholder-icon"></i>
-  <input type="text" placeholder="Post Search">
+  <input type="text" placeholder="Post Search" ng-model="searchterm">
+   <button type="submit">Search</button>
 </label>
+</form>
 </div>
       <ion-list>
         <ion-item menu-close ui-sref="main.list">

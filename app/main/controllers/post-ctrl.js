@@ -30,6 +30,12 @@ angular.module('main')
           $log.log(url + urlExtension);
           cachename = type + slug;
           break;
+      case 'Search':
+          url = Config.ENV.SEARCH_URL;
+          urlExtension = '?search='+ slug +'&page=' + $scope.page;
+          $log.log(url + urlExtension);
+          cachename = type + slug;
+          break;
       }
     }
     var cache = false;
