@@ -26,21 +26,21 @@ angular.module('main', [
           }
         }
       })
-      .state('main.listtypeslug', {
-        url: '/list/:type/:slug',
-        views: {
-          'pageContent': {
-            templateUrl: 'main/templates/posts.html',
-            controller: 'PostCtrl as ctrl'
-          }
-        }
-      })
       .state('main.listDetail', {
         url: '/list/detail/:id',
         views: {
           'pageContent': {
             templateUrl: 'main/templates/list-detail.html',
             controller: 'DetailCtrl as ctrl'
+          }
+        }
+      })
+      .state('main.listtypeslug', {
+        url: '/list/:type/:slug',
+        views: {
+          'pageContent': {
+            templateUrl: 'main/templates/posts.html',
+            controller: 'PostCtrl as ctrl'
           }
         }
       })
