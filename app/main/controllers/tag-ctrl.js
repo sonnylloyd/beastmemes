@@ -2,6 +2,7 @@
 angular.module('main')
 
 .controller('TagCtrl', function ($scope, $log, Config, Cacheget) {
+  $scope.itemType = 'Tag';
   $scope.title = "Tags";
   $scope.page = 1;
   $scope.moredata = false;

@@ -1,14 +1,37 @@
 'use strict';
 angular.module('main')
 
-.controller('PostCtrl', function ($scope, $log, Config, Cacheget) {
-  $scope.title = "Most Recent";
+.controller('PostCtrl', function ($scope, $log, Config, Cacheget, $stateParams) {
+  var slug = $stateParams.slug;
+  var type = $stateParams.type;
+  var url = Config.ENV.RECENT_URL;
+  var cachename = 'posts';
+  if (typeof slug === 'undefined') {
+    $scope.title = "Most Recent";
+  }else{
+    $scope.title = type + " " + slug;
+  }
   $scope.page = 1;
   $scope.moredata = false;
   $scope.loadMoreData = function () {
+    var urlExtension = '?page=' + $scope.page;
+    if (!typeof slug === 'undefined') {
+      switch (type) {
+      case 'Category':
+          url = Config.ENV.CATEGORY_URL;
+          urlExtension = '?slug='+ slug +'&page=' + $scope.page;
+          cachename = type + slug;
+          break;
+      case 'Tag':
+          url = Config.ENV.TAG_URL;
+          urlExtension = '?slug='+ slug +'&page=' + $scope.page;
+          cachename = type + slug;
+          break;
+      }
+    }
     var cache = false;
     if ($scope.page === 1) {cache = true;}
-    Cacheget.http(Config.ENV.RECENT_URL + '?page=' + $scope.page, cache, 'posts').then( function(res) {
+    Cacheget.http(url + urlExtension, cache, cachename).then( function(res) {
       if (!res) {
         $scope.$broadcast('scroll.infiniteScrollComplete');
       } else {
