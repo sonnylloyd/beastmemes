@@ -24,6 +24,13 @@
     color: #fff;
 }
 
+.searchbutton{
+	background-color: transparent;
+	border: 1px solid #ccc;
+	margin-right: 10px;
+	padding: 8px 12px;
+}
+
 .share-facebook {
     background-color: #4b68b9;
     border-color: #344b8d;
