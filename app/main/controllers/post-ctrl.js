@@ -15,32 +15,27 @@ angular.module('main')
   $scope.moredata = false;
   $scope.loadMoreData = function () {
     var urlExtension = '?page=' + $scope.page;
-    $log.log(slug);
     if (typeof slug !== 'undefined') {
       switch (type) {
       case 'Category':
           url = Config.ENV.CATEGORY_URL;
           urlExtension = '?slug='+ slug +'&page=' + $scope.page;
-          $log.log(url + urlExtension);
           cachename = type + slug;
           break;
       case 'Tag':
           url = Config.ENV.TAG_URL;
           urlExtension = '?slug='+ slug +'&page=' + $scope.page;
-          $log.log(url + urlExtension);
           cachename = type + slug;
           break;
       case 'Search':
           url = Config.ENV.SEARCH_URL;
           urlExtension = '?search='+ slug +'&page=' + $scope.page;
-          $log.log(url + urlExtension);
           cachename = type + slug;
           break;
       }
     }
     var cache = false;
     if ($scope.page === 1) {cache = true;}
-    $log.log(url + urlExtension);
     Cacheget.http(url + urlExtension, cache, cachename).then( function(res) {
       if (!res) {
         $scope.$broadcast('scroll.infiniteScrollComplete');
@@ -65,7 +60,6 @@ angular.module('main')
 		$scope.loadMoreData();
   };
   $scope.share = function ($message, $subject, $image, $url) {
-    //$log.log($message + ' ' + $subject + ' ' + $image + ' ' + $url);
     $cordovaSocialSharing.share($sce.trustAsHtml($message), $sce.trustAsHtml($subject), $image, $url)
       .then( function (result) {
         $log.log(result);

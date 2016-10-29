@@ -17,9 +17,11 @@
         <div class="item item-image">
           <img img-cache ic-src="{{ item.attachments[0].images.full.url }}" ui-sref="main.listDetail({id: item.id})">
         </div>
-        <a class="item item-icon-left assertive" ng-click="share('{{item.title}}','{{item.title}}','{{item.attachments[0].images.full.url}}', '{{item.url}}')">
-          <i class="icon icon-right ion-chevron-right ion-accessory"></i> Share
-        </a>
+        <div class="button-bar">
+          <a class="button item item-icon-left assertive" ng-click="share('{{item.title}}','{{item.title}}','{{item.attachments[0].images.full.url}}', '{{item.url}}')">
+            <i class="icon icon-right ion-android-share-alt ion-accessory"></i> Share
+          </a>
+        </div>
       </div>
       <ion-infinite-scroll distance="2" on-infinite="loadMoreData()" ng-if="!moredata">
       </ion-infinite-scroll>
