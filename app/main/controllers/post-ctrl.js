@@ -1,7 +1,7 @@
 'use strict';
 angular.module('main')
 
-.controller('PostCtrl', function ($scope, $log, Config, Cacheget, $stateParams) {
+.controller('PostCtrl', function ($scope, $log, Config, Cacheget, $stateParams, $cordovaSocialSharing, $sce) {
   var slug = $stateParams.slug;
   var type = $stateParams.type;
   var url = Config.ENV.RECENT_URL;
@@ -65,7 +65,8 @@ angular.module('main')
 		$scope.loadMoreData();
   };
   $scope.share = function ($message, $subject, $image, $url) {
-    window.plugins.socialsharing.share($sce.trustAsHtml($message), $sce.trustAsHtml($subject), $image, $url)
+    //$log.log($message + ' ' + $subject + ' ' + $image + ' ' + $url);
+    $cordovaSocialSharing.share($sce.trustAsHtml($message), $sce.trustAsHtml($subject), $image, $url)
       .then( function (result) {
         $log.log(result);
       }, function (err) {
